@@ -1,8 +1,9 @@
-package org.redi_school.bigben;
+package org.redi_school.bigben.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import org.redi_school.bigben.R;
 import org.redi_school.bigben.entities.Event;
 import org.redi_school.bigben.entities.UserData;
 import org.redi_school.bigben.entities.UserDataBuilder;

@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Big Ben</string>
+    <string name="hint_email">enter e-mail</string>
+    <string name="hint_password">enter password</string>
+    <string name="server_client_id">904793619468-40oo44vt0it0b5h07b97idjg5qjkre6n.apps.googleusercontent.com</string>
 </resources>
