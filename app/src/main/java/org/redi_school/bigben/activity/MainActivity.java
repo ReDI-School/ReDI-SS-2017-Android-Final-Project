@@ -1,9 +1,7 @@
-package org.redi_school.bigben.activities;
-
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+package org.redi_school.bigben.activity;
 
 import org.redi_school.bigben.R;
+import org.redi_school.bigben.data.UserInfo;
 import org.redi_school.bigben.entities.Event;
 import org.redi_school.bigben.entities.UserData;
 import org.redi_school.bigben.entities.UserDataBuilder;
@@ -12,6 +10,10 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,11 +25,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // If user is not logged in, go to log in
+        if (UserInfo.getCurrentUser(this) == null) {
+            startActivity(new Intent(this, SignInActivity.class));
+            return;
+        }
+
         setContentView(R.layout.activity_main);
-
         setupSampleData();
-
-        // Recycler View...
     }
 
     private void setupSampleData() {
