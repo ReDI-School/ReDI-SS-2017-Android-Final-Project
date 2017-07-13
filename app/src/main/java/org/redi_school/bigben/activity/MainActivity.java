@@ -4,7 +4,6 @@ import org.redi_school.bigben.R;
 import org.redi_school.bigben.data.UserInfo;
 import org.redi_school.bigben.entities.Event;
 import org.redi_school.bigben.entities.UserData;
-import org.redi_school.bigben.entities.UserDataBuilder;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -33,13 +32,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
         setContentView(R.layout.activity_main);
-        setupSampleData();
+
     }
 
-    private void setupSampleData() {
-        List<UserData> sampleUsers = setupSampleUsers();
-        events = setupSampleEvents(sampleUsers);
-    }
+
 
     private List<Event> setupSampleEvents(List<UserData> sampleUsers) {
         List<Event> events = new ArrayList<>();
@@ -60,21 +56,5 @@ public class MainActivity extends AppCompatActivity {
         return events;
     }
 
-    private List<UserData> setupSampleUsers() {
 
-        List<UserData> userDataList = new ArrayList<>();
-        for (int userIndex = 0; userIndex < USER_COUNT; userIndex++ ){
-
-            String email = "user" + ( userIndex + 1 ) + "@gmail.com";
-            String name = "user" + ( userIndex + 1 );
-            UserData userData = new UserDataBuilder()
-                    .addEmail(email)
-                    .addName(name)
-                    .build();
-
-            userDataList.add(userData);
-
-        }
-        return userDataList;
-    }
 }
