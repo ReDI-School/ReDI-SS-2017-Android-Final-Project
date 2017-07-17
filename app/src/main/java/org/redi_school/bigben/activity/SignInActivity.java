@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
@@ -85,6 +86,7 @@ public class SignInActivity extends AppCompatActivity implements
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .requestIdToken(getString(R.string.server_client_id))
+                .requestServerAuthCode(getString(R.string.server_client_id), false)
                 .build();
 
         mGoogleApiClient = new GoogleApiClient.Builder(this)
@@ -115,15 +117,17 @@ public class SignInActivity extends AppCompatActivity implements
 
     private void handleSignInResult(GoogleSignInResult result) {
         if (result.isSuccess()) {
-            signIntoApi(result.getSignInAccount().getIdToken());
+            GoogleSignInAccount account = result.getSignInAccount();
+            signIntoApi(account.getIdToken(), account.getServerAuthCode());
         }
     }
 
-    private void signIntoApi(String userIdToken) {
+    private void signIntoApi(String userIdToken, String authCode) {
 
         JsonObject jsonBody = new JsonObject();
         jsonBody.addProperty("provider", "google");
         jsonBody.addProperty("id_token", userIdToken);
+        jsonBody.addProperty("auth_code", authCode);
 
         Request request = new Request.Builder()
                 .url("https://punktlich-api.appspot.com/authenticate")
