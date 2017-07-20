@@ -13,16 +13,24 @@ import java.util.List;
 public class Event {
 
     private Long id;
-    private UserData owner;
+    private Long owner;
     private String name;
     private String place;
     private Date time;
     private Date creeated;
 
+
     @SerializedName("attendees_status")
     private List<AttendeeStatus> attendeeStatuses;
 
-   static public class AttendeeStatus{
+    public Event(Long owner, String name, String place,Date time ) {
+        this.owner = owner;
+        this.name = name;
+        this.place = place;
+        this.time = time;
+    }
+
+    static public class AttendeeStatus{
        String status;
        Long id;
 
@@ -33,4 +41,17 @@ public class Event {
        Long userId;
        Date modified;
    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPlace(String place) {
+        this.place = place;
+    }
+
+    public void setOwner(Long owner) {
+
+        this.owner = owner;
+    }
 }
