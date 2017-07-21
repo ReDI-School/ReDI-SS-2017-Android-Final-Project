@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "904793619468",
+    "project_id": "punktlich-api"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:904793619468:android:b451dad11a67f56d",
+        "android_client_info": {
+          "package_name": "org.redi_school.bigben"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "904793619468-hras7r4tar82acie5idls29c33fqi1mq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.redi_school.bigben",
+            "certificate_hash": "32c519627773f37b70556400674a7b3a01624a39"
+          }
+        },
+        {
+          "client_id": "904793619468-40oo44vt0it0b5h07b97idjg5qjkre6n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXrroXHbhTugTOGoZzPFpYXwXG-fqgm9g"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

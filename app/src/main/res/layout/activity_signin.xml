@@ -30,20 +30,6 @@
             android:layout_centerHorizontal="true"
             android:fontFamily="sans-serif-condensed"/>
 
-    <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/subtitle_textview"
-            android:layout_above="@+id/big_ben_imageview">
-
-        <com.google.android.gms.common.SignInButton
-                android:id="@+id/sign_in_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"/>
-
-    </FrameLayout>
-
     <ImageView
             android:id="@+id/big_ben_imageview"
             android:layout_width="256dp"
@@ -52,5 +38,17 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             app:srcCompat="@drawable/picture_big_ben"/>
+
+    <Button
+        android:id="@+id/sign_in_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/title_textview"
+        android:layout_alignRight="@+id/title_textview"
+        android:layout_below="@+id/subtitle_textview"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="73dp"
+        android:text="Button" />
 
 </RelativeLayout>

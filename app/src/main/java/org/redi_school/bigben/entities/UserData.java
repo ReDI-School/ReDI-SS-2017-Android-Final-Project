@@ -5,6 +5,7 @@ package org.redi_school.bigben.entities;
  */
 
 public class UserData {
+    private Long id;
     private String token;
     private String email;
     private String name;
@@ -19,35 +20,9 @@ public class UserData {
         return token;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public Long getId() {
+        return id;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public void setPicture(String picture) {
-        this.picture = picture;
-    }
-
-    public void setPunctuality(float punctuality) {
-        this.punctuality = punctuality;
-    }
-
-    public void setSubject_id(String subject_id) {
-        this.subject_id = subject_id;
-    }
-
-    public void setProvider(String provider) {
-        this.provider = provider;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
 }

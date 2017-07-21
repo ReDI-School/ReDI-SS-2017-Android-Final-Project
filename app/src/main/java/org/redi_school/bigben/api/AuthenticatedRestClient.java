@@ -25,11 +25,20 @@ public class AuthenticatedRestClient {
     private Retrofit retrofit;
     private final Context context;
 
+    private static AuthenticatedRestClient authenticatedRestClient;
+
+    public static AuthenticatedRestClient getInstance(Context context){
+        if (authenticatedRestClient == null ){
+            authenticatedRestClient = new AuthenticatedRestClient(context);
+        }
+        return authenticatedRestClient;
+    }
+
     private AuthenticatedRestClient(Context context) {
 
         this.context = context;
 
-        GsonBuilder gsonBuilder = new GsonBuilder();
+        GsonBuilder gsonBuilder = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm'Z'");
         OkHttpClient.Builder okHttpClientBuilder = new OkHttpClient.Builder().addInterceptor(authInterceptor);
 
         retrofit = new Retrofit.Builder()

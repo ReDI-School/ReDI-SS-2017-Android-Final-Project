@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_blue"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/owner_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginRight="239dp"
+        android:background="@color/common_google_signin_btn_text_dark_default"
+        android:text="Redi School"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/date_textView"
+        android:layout_marginEnd="239dp"
+        android:layout_marginTop="66dp"
+        android:layout_marginBottom="67dp"
+        app:layout_constraintTop_toTopOf="@+id/event_textView"
+        app:layout_constraintVertical_bias="0.678" />
+
+    <TextView
+        android:id="@+id/event_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="-1dp"
+        android:background="@color/common_google_signin_btn_text_dark_default"
+        android:text="Event"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.412"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
+
+    <TextView
+        android:id="@+id/location_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/common_google_signin_btn_text_dark_default"
+        android:text="Nordbahnhof Str.5, 12341 Berlin"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.533"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/event_textView"
+        app:layout_constraintVertical_bias="0.123"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintTop_creator="1"
+        android:layout_marginEnd="8dp" />
+
+    <TextView
+        android:id="@+id/date_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginRight="129dp"
+        android:background="@color/common_google_signin_btn_text_dark_default"
+        android:text="22.07.2017"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintTop_creator="1"
+        android:layout_marginEnd="129dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/location_textView" />
+
+    <TextView
+        android:id="@+id/the_Response"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your Response"
+        android:textAppearance="@style/AppTheme"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/cancel_imageView"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="6dp" />
+
+    <ImageView
+        android:id="@+id/Acceptence_imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_accept"
+        tools:layout_constraintTop_creator="1"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="6dp"
+        app:layout_constraintTop_toBottomOf="@+id/the_Response"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/the_Response"
+        android:layout_marginLeft="19dp" />
+
+    <ImageView
+        android:id="@+id/cancel_imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.45"
+        app:srcCompat="@drawable/ic_cancel"
+        tools:layout_constraintRight_creator="1"
+        android:layout_marginEnd="21dp"
+        app:layout_constraintRight_toRightOf="@+id/the_Response"
+        android:layout_marginRight="19dp" />
+
+</android.support.constraint.ConstraintLayout>
