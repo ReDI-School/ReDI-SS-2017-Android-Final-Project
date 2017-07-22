@@ -1,15 +1,5 @@
 package org.redi_school.bigben.activity;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-
 import org.redi_school.bigben.R;
 import org.redi_school.bigben.api.AuthenticatedRestClient;
 import org.redi_school.bigben.api.EventService;
@@ -17,6 +7,12 @@ import org.redi_school.bigben.entities.Event;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -41,13 +37,6 @@ public class ShowTheEvents extends AppCompatActivity {
 
     private List<Event> getEvents() {
         AuthenticatedRestClient authenticatedRestClient = AuthenticatedRestClient.getInstance(getApplicationContext());
-        final Button showAllUsersButton = (Button) findViewById(R.id.show_events);
-        showAllUsersButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(ShowTheEvents.this, ShowTheEvents.class));
-            }
-        });
 
         final EventService eventService = authenticatedRestClient.createService(EventService.class);
         eventService.getEvents().enqueue(new Callback<List<Event>>() {
