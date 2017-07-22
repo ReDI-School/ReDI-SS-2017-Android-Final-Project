@@ -32,7 +32,7 @@
             android:accessibilityLiveRegion="polite"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Location"
+            android:text="Berlin"
             android:textSize="24sp"
             android:textStyle="bold"
             tools:layout_constraintTop_creator="1"
