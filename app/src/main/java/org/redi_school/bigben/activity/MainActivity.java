@@ -5,12 +5,14 @@ import org.redi_school.bigben.api.AuthenticatedRestClient;
 import org.redi_school.bigben.api.EventService;
 import org.redi_school.bigben.data.UserInfo;
 import org.redi_school.bigben.entities.Event;
-import org.redi_school.bigben.entities.UserData;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -53,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
     //EventService eventService;
 
     private List<Event> events = new ArrayList<Event>();
-    private Event event=new Event();
     //private void initializeServices() {
       //  EventService eventService = authenticatedRestClient.createService(EventService.class);
     //}
@@ -63,30 +64,32 @@ public class MainActivity extends AppCompatActivity {
         final AuthenticatedRestClient client = AuthenticatedRestClient.getInstance(this);
 
         final EditText name_text = (EditText) findViewById(R.id.event_name);
-
-        final EditText subject_text = (EditText) findViewById(R.id.owner_name);
-
-
         final EditText location_text = (EditText) findViewById(R.id.location);
 
+        final EditText date_text = (EditText) findViewById(R.id.date);
         final EditText time_text = (EditText) findViewById(R.id.time);
 
-        final Button showAllUsersButton = (Button) findViewById(R.id.create_event);
-        showAllUsersButton.setOnClickListener(new View.OnClickListener() {
+        final Button createEventButton = (Button) findViewById(R.id.create_event);
+        createEventButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 final String event_name = name_text.getText().toString();
-                final String event_owner = subject_text.getText().toString();
                 final String event_location = location_text.getText().toString();
-                final String event_time = time_text.getText().toString();
 
+                DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.GERMANY);
+                Date date = null;
+                try {
+                    date = dateFormat.parse(date_text.getText().toString() + " " + time_text.getText().toString());
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
 
-                final Event user = new Event(event_name,event_owner,event_location,event_time);
+                final Event event = new Event(event_name, event_location, date);
                 eventService.createEvent(event).enqueue(new Callback<Void>() {
                     @Override
                     public void onResponse(Call<Void> call, Response<Void> response) {
                         if (response.isSuccessful()) {
-                            Toast.makeText(MainActivity.this, "User created", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "Event created", Toast.LENGTH_SHORT).show();
                         }
                     }
 

@@ -1,10 +1,9 @@
 package org.redi_school.bigben.entities;
 
-import com.google.gson.annotations.SerializedName;
-
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
+
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Created by mlu on 06.07.2017.
@@ -16,10 +15,8 @@ public class Event {
     private String owner;
     private String name;
     private String place;
-    private String time;
-    //private Date time;
-    private GregorianCalendar date;
-    //private Date creeated;
+    private Date time;
+    private Date creeated;
 
 
     @SerializedName("attendees_status")
@@ -27,15 +24,10 @@ public class Event {
 
     public Event(){}
 
-    public Event( String name,String owner, String place, String time ) {
-        this.owner = owner;
+    public Event(String name, String place, Date time) {
         this.name = name;
         this.place = place;
         this.time = time;
-    }
-
-    public void setDate(GregorianCalendar date) {
-        this.date = date;
     }
 
     static public class AttendeeStatus{
@@ -50,19 +42,6 @@ public class Event {
         Date modified;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setPlace(String place) {
-        this.place = place;
-    }
-
-    public void setOwner(String owner) {
-
-        this.owner = owner;
-    }
-
     public Long getId() {
         return id;
     }
@@ -71,12 +50,8 @@ public class Event {
         return owner;
     }
 
-    public String getTime() {
+    public Date getTime() {
         return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
     }
 
     public String getName() {
