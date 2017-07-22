@@ -35,7 +35,7 @@ public class ShowTheEvents extends AppCompatActivity {
 
     }
 
-    private List<Event> getEvents() {
+    private void getEvents() {
         AuthenticatedRestClient authenticatedRestClient = AuthenticatedRestClient.getInstance(getApplicationContext());
 
         final EventService eventService = authenticatedRestClient.createService(EventService.class);
@@ -44,6 +44,7 @@ public class ShowTheEvents extends AppCompatActivity {
             public void onResponse(Call<List<Event>> call, Response<List<Event>> response) {
                 if (response.isSuccessful()) {
                     events.addAll(response.body());
+                    eventAdapter.notifyDataSetChanged();
                 }
             }
 
@@ -52,8 +53,6 @@ public class ShowTheEvents extends AppCompatActivity {
 
             }
         });
-
-        return events;
     }
     private void setupListOfevents(){
         final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_View);
